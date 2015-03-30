@@ -1,0 +1,11 @@
+{
+    "name": "kirchbergerknorr/Rayfox_Catalog",
+    "description": "If you want to show out of stock products but don't want them to on the top of your product list page, this extension can help you. You only need to switch it on on Magento configuration and it will move all out of stock products to the bottom of the product list page. The configuration depends on `show out of stock product`, it will be hidden if not allowed display out of stock products.",
+    "type": "magento-module",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "extra": {
+        "magento-root-dir": "src"
+    }
+}
