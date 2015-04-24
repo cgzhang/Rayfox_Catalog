@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Sort products by stock status.
  *
@@ -13,23 +14,28 @@
  */
 class Rayfox_Catalog_Model_Layer extends Mage_Catalog_Model_Layer
 {
-	public function prepareProductCollection($collection)
-	{
-		parent::prepareProductCollection($collection);
-		if(!Mage::helper('rayfox_catalog')->isSortOutOfStockProductsAtBottomEnabled()){
-			return $this;
-		}
-        $websiteId = Mage::app()->getStore()->getWebsiteId();
-		if (Mage::helper('catalog')->isModuleEnabled('Mage_CatalogInventory')) {
-            $collection->joinTable(
-                array('cisi' => 'cataloginventory/stock_status'),
-                'product_id=entity_id',
-                'stock_status',
-                 array('website_id'=> $websiteId),
-                'left'
-            );
+    public function prepareProductCollection($collection)
+    {
+        parent::prepareProductCollection($collection);
+        if (!Mage::helper('rayfox_catalog')->isSortOutOfStockProductsAtBottomEnabled()) {
+            return $this;
         }
-        $collection->getSelect()->order('stock_status desc');
-		return $this;
-	}
+        try {
+            $websiteId = Mage::app()->getStore()->getWebsiteId();
+            if (Mage::helper('catalog')->isModuleEnabled('Mage_CatalogInventory')) {
+                $collection->joinTable(
+                    array('cisi' => 'cataloginventory/stock_status'),
+                    'product_id=entity_id',
+                    'stock_status',
+                    array('website_id' => $websiteId),
+                    'left'
+                );
+            }
+            $collection->getSelect()->order('stock_status desc');
+        } catch (Exception $e) {
+
+        }
+
+        return $this;
+    }
 }
