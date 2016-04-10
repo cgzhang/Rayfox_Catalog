@@ -24,7 +24,7 @@ class Rayfox_Catalog_Model_Search_Layer extends Mage_CatalogSearch_Model_Layer
             $collection->joinTable(
                 array('cisi' => 'cataloginventory/stock_status'),
                 'product_id=entity_id',
-                'stock_status',
+                array('stock_status'),
                  array('website_id'=> $websiteId),
                 'left'
             );
