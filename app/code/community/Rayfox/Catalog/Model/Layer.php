@@ -10,7 +10,7 @@
  * 3. Support both configurable and simple products now.
  * This source file is subject to the Open Software License (OSL 3.0)
  *
- * @version 0.2.2
+ * @version 0.2.3
  */
 class Rayfox_Catalog_Model_Layer extends Mage_Catalog_Model_Layer
 {

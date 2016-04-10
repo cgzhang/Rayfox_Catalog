@@ -4,7 +4,7 @@ If you want to show out of stock products but don't want them to on the top of y
 
 ## Facts
 
-- version: 0.2.2
+- version: 0.2.3
 - extension key: Rayfox_Catalog
 - [extension on Magento Connect](http://www.magentocommerce.com/magento-connect/sort-products-automatically-sort-by-stock.html)
 - Magento Connect 2.0 extension key: http://connect20.magentocommerce.com/community/Rayfox_Catalog
@@ -12,6 +12,7 @@ If you want to show out of stock products but don't want them to on the top of y
 
 ## Features:
 
+- Now support sort by stock on advanced search result pages.
 - Now support sort by stock on search result pages.
 - Always show out of stock products on the bottom of the category page.
 - Easy setup, just turn on from Magento backend, and it works!
