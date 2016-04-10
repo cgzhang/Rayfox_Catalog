@@ -13,16 +13,16 @@
  */
 class Rayfox_Catalog_Helper_Data extends Mage_CatalogInventory_Helper_Data
 {
-	const XML_PATH_SORT_OUT_OF_STOCK    = 'cataloginventory/options/sort_out_of_stock_at_bottom';
-	const XML_PATH_SORT_OUT_OF_STOCK_SEARCH_RESULT = 'cataloginventory/options/sort_out_of_stock_at_bottom_for_search';
-	
-	public function isSortOutOfStockProductsAtBottomEnabled()
-	{
-		return $this->isShowOutOfStock() && Mage::getStoreConfigFlag(self::XML_PATH_SORT_OUT_OF_STOCK);
-	}
+    const XML_PATH_SORT_OUT_OF_STOCK    = 'cataloginventory/options/sort_out_of_stock_at_bottom';
+    const XML_PATH_SORT_OUT_OF_STOCK_SEARCH_RESULT = 'cataloginventory/options/sort_out_of_stock_at_bottom_for_search';
+    
+    public function isSortOutOfStockProductsAtBottomEnabled()
+    {
+        return $this->isShowOutOfStock() && Mage::getStoreConfigFlag(self::XML_PATH_SORT_OUT_OF_STOCK);
+    }
 
-	public function isEnabledForSearchResults()
-	{
-		return $this->isShowOutOfStock() && Mage::getStoreConfigFlag(self::XML_PATH_SORT_OUT_OF_STOCK_SEARCH_RESULT);
-	}
+    public function isEnabledForSearchResults()
+    {
+        return $this->isShowOutOfStock() && Mage::getStoreConfigFlag(self::XML_PATH_SORT_OUT_OF_STOCK_SEARCH_RESULT);
+    }
 }

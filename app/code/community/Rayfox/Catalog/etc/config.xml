@@ -26,29 +26,29 @@
  */
 -->
 <config>
-	<modules>
-		<Rayfox_Catalog>
-			<version>0.2.3</version>
-		</Rayfox_Catalog>
-	</modules>
-	<global>
-		<models>
-			<catalog>
-				<rewrite>
-					<layer>Rayfox_Catalog_Model_Layer</layer>
-				</rewrite>
-			</catalog>
-			<catalogsearch>
-				<rewrite>
-					<layer>Rayfox_Catalog_Model_Search_Layer</layer>
-					<advanced>Rayfox_Catalog_Model_Search_Advanced</advanced>
-				</rewrite>
-			</catalogsearch>
-		</models>
-		<helpers>
-			<rayfox_catalog>
-				<class>Rayfox_Catalog_Helper</class>
-			</rayfox_catalog>
-		</helpers>
-	</global>
+    <modules>
+        <Rayfox_Catalog>
+            <version>0.2.3</version>
+        </Rayfox_Catalog>
+    </modules>
+    <global>
+        <models>
+            <catalog>
+                <rewrite>
+                    <layer>Rayfox_Catalog_Model_Layer</layer>
+                </rewrite>
+            </catalog>
+            <catalogsearch>
+                <rewrite>
+                    <layer>Rayfox_Catalog_Model_Search_Layer</layer>
+                    <advanced>Rayfox_Catalog_Model_Search_Advanced</advanced>
+                </rewrite>
+            </catalogsearch>
+        </models>
+        <helpers>
+            <rayfox_catalog>
+                <class>Rayfox_Catalog_Helper</class>
+            </rayfox_catalog>
+        </helpers>
+    </global>
 </config>
