@@ -3,4 +3,5 @@ app/code/community/Rayfox/Catalog/etc/system.xml app/code/community/Rayfox/Catal
 app/code/community/Rayfox/Catalog/Helper/Data.php app/code/community/Rayfox/Catalog/Helper/Data.php
 app/code/community/Rayfox/Catalog/Model/Layer.php app/code/community/Rayfox/Catalog/Model/Layer.php
 app/code/community/Rayfox/Catalog/Model/Search/Layer.php app/code/community/Rayfox/Catalog/Model/Search/Layer.php
+app/code/community/Rayfox/Catalog/Model/Search/Advanced.php app/code/community/Rayfox/Catalog/Model/Search/Advanced.php
 app/etc/modules/Rayfox_Catalog.xml app/etc/modules/Rayfox_Catalog.xml

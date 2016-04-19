@@ -11,7 +11,7 @@
  *
  * @version 0.2.3
  */
-class Rayfox_Catalog_Model_Search_Layer extends Mage_CatalogSearch_Model_Layer
+class Rayfox_Catalog_Model_Search_Advanced extends Mage_CatalogSearch_Model_Advanced
 {
     public function prepareProductCollection($collection)
     {
