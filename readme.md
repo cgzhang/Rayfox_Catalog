@@ -21,7 +21,9 @@ If you want to show out of stock products but don't want them to on the top of y
 
 ## Support
 
-For more information please visit http://www.magentocommerce.com/magento-connect/sort-products-automatically-sort-by-stock.html
+If you have any issues with this extension, open an issue on [GitHub](https://github.com/cgzhang/Rayfox_Catalog/issues).
 
-Please note that we are not the developer of this extension. In this repo we only added modman/composer support. We will not provide any support for this repository. If you have any problems on integration, please use the official link mentioned above.
+## Contribution
+
+Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).
 
