@@ -23,19 +23,46 @@ class Rayfox_Catalog_Model_Layer extends Mage_Catalog_Model_Layer
         try {
             $websiteId = Mage::app()->getStore()->getWebsiteId();
             if (Mage::helper('catalog')->isModuleEnabled('Mage_CatalogInventory')) {
-                $collection->joinTable(
-                    array('cisi' => 'cataloginventory/stock_status'),
-                    'product_id=entity_id',
-                    array('stock_status'),
-                    array('website_id' => $websiteId),
-                    'left'
-                );
+                
+                /*$collection->getSelect()->joinLeft(
+                    array('stock_status' => 'cataloginventory_stock_status'),
+                    'stock_status.product_id = e.entity_id',
+                    array('stock_status')
+                );*/
+
+                // fix conflict
+                // check if stock_status field already joined (for example, by other extensions)
+                $stockStatusFieldExisted = $this->_checkFieldExisted($collection->getSelect(), 'stock_status');
+                //if yes, skip join.
+                if(!$stockStatusFieldExisted) {
+                    $collection->joinTable(
+                        array('cisi' => 'cataloginventory/stock_status'),
+                        'product_id=entity_id',
+                        array('stock_status'),
+                        array('website_id' => $websiteId),
+                        'left'
+                    );
+                    
+                }
             }
             $collection->getSelect()->order('stock_status desc');
-        } catch (Exception $e) {
-
-        }
-
+        } 
+        catch (Exception $e) {}
         return $this;
+    }
+
+    protected function _checkFieldExisted($select, $field)
+    {
+        $result = false;
+        if($field) {
+            $columns = $select->getPart(Zend_Db_Select::COLUMNS);
+            foreach ($columns as $column) {
+                if (in_array($field , $column)) {
+                    $result = true;
+                    break;
+                }
+            }           
+        }
+        return $result;
     }
 }

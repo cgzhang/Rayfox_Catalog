@@ -21,13 +21,16 @@ class Rayfox_Catalog_Model_Search_Advanced extends Mage_CatalogSearch_Model_Adva
         }
         $websiteId = Mage::app()->getStore()->getWebsiteId();
         if (Mage::helper('catalog')->isModuleEnabled('Mage_CatalogInventory')) {
-            $collection->joinTable(
-                array('cisi' => 'cataloginventory/stock_status'),
-                'product_id=entity_id',
-                array('stock_status'),
-                array('website_id'=> $websiteId),
-                'left'
-            );
+            $stockStatusFieldExisted = Mage::helper('rayfox_catalog')->checkFieldExisted($collection->getSelect(), 'stock_status');
+            if(!$stockStatusFieldExisted) {
+                $collection->joinTable(
+                    array('cisi' => 'cataloginventory/stock_status'),
+                    'product_id=entity_id',
+                    array('stock_status'),
+                    array('website_id'=> $websiteId),
+                    'left'
+                );
+            }
         }
         $collection->getSelect()->order('stock_status desc');
         return $this;

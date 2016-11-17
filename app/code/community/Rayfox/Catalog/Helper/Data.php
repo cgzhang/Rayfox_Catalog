@@ -25,4 +25,19 @@ class Rayfox_Catalog_Helper_Data extends Mage_CatalogInventory_Helper_Data
     {
         return $this->isShowOutOfStock() && Mage::getStoreConfigFlag(self::XML_PATH_SORT_OUT_OF_STOCK_SEARCH_RESULT);
     }
+
+    public function checkFieldExisted($select, $field)
+    {
+        $result = false;
+        if($field) {
+            $columns = $select->getPart(Zend_Db_Select::COLUMNS);
+            foreach ($columns as $column) {
+                if (in_array($field , $column)) {
+                    $result = true;
+                    break;
+                }
+            }           
+        }
+        return $result;
+    }
 }
