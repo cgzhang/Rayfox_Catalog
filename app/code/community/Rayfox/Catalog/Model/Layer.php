@@ -10,7 +10,7 @@
  * 3. Support both configurable and simple products now.
  * This source file is subject to the Open Software License (OSL 3.0)
  *
- * @version 0.2.3
+ * @version 0.2.5
  */
 class Rayfox_Catalog_Model_Layer extends Mage_Catalog_Model_Layer
 {
@@ -32,7 +32,7 @@ class Rayfox_Catalog_Model_Layer extends Mage_Catalog_Model_Layer
 
                 // fix conflict
                 // check if stock_status field already joined (for example, by other extensions)
-                $stockStatusFieldExisted = $this->_checkFieldExisted($collection->getSelect(), 'stock_status');
+                $stockStatusFieldExisted = Mage::helper('rayfox_catalog')->checkFieldExisted($collection->getSelect(), 'stock_status');
                 //if yes, skip join.
                 if(!$stockStatusFieldExisted) {
                     $collection->joinTable(
@@ -49,20 +49,5 @@ class Rayfox_Catalog_Model_Layer extends Mage_Catalog_Model_Layer
         } 
         catch (Exception $e) {}
         return $this;
-    }
-
-    protected function _checkFieldExisted($select, $field)
-    {
-        $result = false;
-        if($field) {
-            $columns = $select->getPart(Zend_Db_Select::COLUMNS);
-            foreach ($columns as $column) {
-                if (in_array($field , $column)) {
-                    $result = true;
-                    break;
-                }
-            }           
-        }
-        return $result;
     }
 }
